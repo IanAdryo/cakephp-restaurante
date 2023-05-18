@@ -126,12 +126,11 @@
             <li><?php echo $this->Html->link('Nueva Categorias', array('controller' => 'categoriaPlatillos', 'action' => 'add')) ?></li>
           </ul>
         </li>
+        <li><?php echo $this->Html->link('Lista de Órdenes', array('controller' => 'ordens', 'action' => 'index')); ?></li>
       </ul>
 
+
       <li><?php echo $this->Html->link('Pedidos', array('controller' => 'pedidos', 'action' => 'view'), array('class' => 'btn btn-success navbar-btn')) ?></li>
-
-
-
 
     </div><!--/.nav-collapse -->
   </div>

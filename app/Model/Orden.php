@@ -21,17 +21,17 @@
             'Mesa' => array(
                 'className' => 'Mesa',
                 'foreignKey' => 'mesa_id',
-                'conditions'=> '',
+                'conditions' => '',
                 'fields' => '',
                 'order' => ''
             )
 
         );
 
-        public $HasMany = array(
+        public $hasMany = array(
             'OrdenItem' => array(
                 'className' => 'OrdenItem',
-                'foreignKey' => 'Orden_id',
+                'foreignKey' => 'orden_id',
                 'dependent' => true,
                 'conditions' => '',
                 'fields' => '',
@@ -39,10 +39,9 @@
                 'limit' => '',
                 'offset' => '',
                 'exclusive' => '',
-                'fnderQuery' => '',
+                'finderQuery' => '',
                 'counterQuery' => ''
             )
         );
-
-}
+    }
 ?>

@@ -121,7 +121,7 @@ class Platillo extends AppModel {
  *
  * @var array
  */
-	public $belongsTo = array(
+	public $belongsTo = array( //muchos a uno
 		'CategoriaPlatillo' => array(
 			'className' => 'CategoriaPlatillo',
 			'foreignKey' => 'categoria_platillo_id',
@@ -139,7 +139,7 @@ class Platillo extends AppModel {
 		),
 		'OrdenItem' => array(
 			'className' => 'OrdenItem',
-			'foreignKey' => 'Platillo_id',
+			'foreignKey' => 'platillo_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',

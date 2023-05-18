@@ -1,5 +1,5 @@
 <?php
-    class OrdenItem extends AppModel {
+    class OrdenItem extends AppModel{
 
         public $belongsTo = array(
             'Orden' => array(
@@ -15,9 +15,8 @@
                 'conditions' => '',
                 'fields' => '',
                 'order' => ''
-            )
+            ),
         );
-        
     }
     
 ?>
