@@ -98,7 +98,7 @@ class Mesa extends AppModel {
 	public $hasMany = array(
 		'Orden' => array(
 			'className' => 'Orden',
-			'foreignkey' => 'orden_id',
+			'foreignkey' => 'mesa_id',
 			'dependent' => false,
 			'conditions' =>'',
 			'fields' => '',

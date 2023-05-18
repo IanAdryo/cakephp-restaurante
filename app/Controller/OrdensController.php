@@ -19,7 +19,7 @@
                 //recuperando mesa del restaurante
 
                 $mesas = $this->Orden->Mesa->find('list');
-
+                
                 $this->set(compact('orden_item', 'mostrar_total_pedidos', 'mesas'));
 
 

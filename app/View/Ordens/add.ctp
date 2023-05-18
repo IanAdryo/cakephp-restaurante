@@ -27,8 +27,8 @@
                     <tr>
                         <td><?php echo $item['Platillo']['nombre']; ?></td>
                         <td><?php echo $item['Platillo']['precio']; ?></td>
-                        <td><?php echo $item['Platillo']['cantidad']; ?></td>
-                        <td><?php echo $item['Platillo']['subtotal']; ?></td>
+                        <td><?php echo $item['Pedido']['cantidad']; ?></td>
+                        <td><?php echo $item['Pedido']['subtotal']; ?></td>
 
                     </tr>
                     <?php endforeach; ?>
@@ -39,11 +39,14 @@
             <p>
                 <span class="total">Total Orden:</span>
                 <span id="total" class="total">
-                    $ 
+                    $ <?php echo $mostrar_total_pedidos; ?>
                 </span>
                 <br />
                 <br />
+                <?php echo $this->Form->input('total', array('type' => 'hidden', 'value' => $mostrar_total_pedidos)); ?>
             </p>
+
+            <?php echo $this->Form->end(array('label' => 'Procesar Orden', 'class' => 'btn btn-success')); ?>
 
 
         </div>

@@ -136,6 +136,19 @@ class Platillo extends AppModel {
 			'className' => 'Pedido',
 			'foreignKey' => 'platillo_id',
 			'dependent' => false
+		),
+		'OrdenItem' => array(
+			'className' => 'OrdenItem',
+			'foreignKey' => 'Platillo_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'fnderQuery' => '',
+			'counterQuery' => ''
 		)
 	);
 
