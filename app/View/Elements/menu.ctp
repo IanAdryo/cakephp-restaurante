@@ -78,7 +78,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Bootstrap theme</a>
+      <a class="navbar-brand" href="#">Restaurante</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -116,21 +116,21 @@
             <li><?php echo $this->Html->link('Nueva Platillos', array('controller' => 'platillos', 'action' => 'add')) ?></li>
             <li class="divider"></li>
             <li class="dropdown-header">Categorias</li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorias <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
             <li><?php echo $this->Html->link('Lista Categorias', array('controller' => 'categoriaPlatillos', 'action' => 'index')) ?></li>
             <li><?php echo $this->Html->link('Nueva Categorias', array('controller' => 'categoriaPlatillos', 'action' => 'add')) ?></li>
           </ul>
         </li>
+
         <li><?php echo $this->Html->link('Lista de Órdenes', array('controller' => 'ordens', 'action' => 'index')); ?></li>
+
+        <?php echo $this->Form->create('Platillo', array('type' => 'GET', 'class' => 'navbar-form navbar-left', 'url' => array('controller' => 'platillos', 'action' => 'search'))); ?>
+        <div class="form-group">
+          <?php echo $this->Form->input('search', array('label' => false, 'div' => false, 'id' => 's', 'class' => 'form-control s', 'autocomplete' => false, 'placeholder' => 'Buscar platillo...')); ?>
+        </div>
+        <?php echo $this->Form->button('Buscar', array('div' => false, 'class' => 'btn btn-sm btn-primary')); ?>
+        <?php echo $this->Form->end(); ?>
+        <?php echo $this->Html->link('Pedidos', array('controller' => 'pedidos', 'action' => 'view'), array('class' => 'btn  btn-success navbar-btn')) ?>
       </ul>
-
-
-      <li><?php echo $this->Html->link('Pedidos', array('controller' => 'pedidos', 'action' => 'view'), array('class' => 'btn btn-success navbar-btn')) ?></li>
 
     </div><!--/.nav-collapse -->
   </div>
