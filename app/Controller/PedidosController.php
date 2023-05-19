@@ -117,6 +117,7 @@ class PedidosController extends AppController{
         $arreglo = $this->request->data['Pedido'];
 
         if ($this->request->is('post')) {
+            
             foreach ($arreglo as $key => $value) {
                 
                 $entero = preg_replace("/[^0-9]/", "", $value);
@@ -125,7 +126,7 @@ class PedidosController extends AppController{
                     
                     $entero = 1;
                 }
-                $precio_update = $this->Pedido->find('all', array('fields' => array('Pedido.id', 'Platillo.precio'), 'conditios' => array('Pedido.id' => $key)));
+                $precio_update = $this->Pedido->find('all', array('fields' => array('Pedido.id', 'Platillo.precio'), 'conditions' => array('Pedido.id' => $key)));
                 $precio_update_mostrar = $precio_update[0]['Platillo']['precio'];
                 $subtotal_update = $entero * $precio_update_mostrar;
 
