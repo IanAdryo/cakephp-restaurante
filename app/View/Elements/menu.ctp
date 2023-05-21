@@ -129,6 +129,7 @@
         </div>
         <?php echo $this->Form->button('Buscar', array('div' => false, 'class' => 'btn btn-sm btn-primary')); ?>
         <?php echo $this->Form->end(); ?>
+        
         <?php echo $this->Html->link('Pedidos', array('controller' => 'pedidos', 'action' => 'view'), array('class' => 'btn  btn-success navbar-btn')) ?>
       </ul>
 

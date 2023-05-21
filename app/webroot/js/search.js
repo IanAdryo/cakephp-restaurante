@@ -1,12 +1,13 @@
 $(document).ready(function () {
-    $(s).autocomplete({
+    $('#s').autocomplete({
         minLength: 2,
         select: function (event, ui) {
             $("#s").val(ui.item.label)
         },
         source: function (request, response) {
+            
             $.ajax({
-                url: basePath + "platillos/searhjson",
+                url: basePath + "platillos/searchjson",
                 data: {
                     term: request.term
                 },
@@ -20,13 +21,16 @@ $(document).ready(function () {
                             foto_dir: el.Platillo.foto_dir
                         };
                     } ));
+                },
+                error: function () {
+                    alert("Error:Tenemos problemas!!!");
                 }
             });
         }
     }).data("ui-autocomplete")._renderItem = function (ul, item) {
         return $("<li></li>")
         .data("item.autocomplete", item)
-        .append("<a><img width='40' source='"+ basePath + "files/platillo/foto/" + item.foto_dir + "/" + item.foto +"'/>" + item.nombre + "</a>")
+        .append("<a><img width='40' src='" + basePath + "files/platillo/foto/" + item.foto_dir + "/" + item.foto + "' />" + item.nombre + "</a>")
         .appendTo(ul)
-    };
+    };   
 });

@@ -6,8 +6,7 @@ App::uses('AppController', 'Controller');
  * @property Platillo $Platillo
  * @property PaginatorComponent $Paginator
  */
-class PlatillosController extends AppController
-{
+class PlatillosController extends AppController {
 
 	/**
 	 * Components
@@ -123,5 +122,27 @@ class PlatillosController extends AppController
 			$this->Session->setFlash('The platillo could not be deleted. Please, try again.', 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index'));
+	}
+
+	public function searchjson() {
+		
+		$term = null;
+
+		if (!empty($this->request->query['term'])) {
+			
+			$term = $this->request->query['term'];
+			//debug($term);
+			$terms = explode(' ', trim($term));
+			$terms = array_diff($terms, array(''));
+
+			foreach ($terms as $term) {
+				
+				$conditions[] = array('Platillo.nombre LIKE' => '%' . $term . '%');
+			}
+			$platillos = $this->Platillo->find('all', array('recursive' => -1, 'fields' => array('Platillo.id', 'Platillo.nombre', 'Platillo.foto', 'Platillo.foto_dir'), 'conditions' => $conditions, 'limit' => 20));			
+		}
+
+		echo json_encode($platillos);		
+		$this->autoRender = false;
 	}
 }
