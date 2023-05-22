@@ -145,4 +145,42 @@ class PlatillosController extends AppController {
 		echo json_encode($platillos);		
 		$this->autoRender = false;
 	}
+	
+	public function search() {
+
+		$search = null;
+		
+		if (!empty($this->request->query['search'])) {
+
+			$search = $this->request->query['search'];
+			$search = preg_replace('/[^a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 ]/', '', $search);
+			$terms = explode(' ', trim($search));
+			$terms = array_diff($terms, array(''));
+
+			foreach ($terms as $term) {
+
+				//$terms1[] = preg_replace('/[^a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 ]/', '', $term);
+				$conditions[] = array('Platillo.nombre LIKE' => '%' . $term . '%');
+			}
+			$platillos = $this->Platillo->find('all', array('recursive' => -1, 'conditions' => $conditions, 'limit' => 200));
+
+			if (count($platillos) == 1) {
+				
+				return $this->redirect(array('controller' => 'Platillos', 'action' => 'view', $platillos[0]['Platillo']['id']));
+			}
+
+			//$terms1 = array_diff($terms1, array(''));
+		$this->set(compact('platillos'/*, 'terms1'*/));
+		}
+		$this->set(compact('search'));
+		if ($this->request->is('ajax')) {
+			
+			$this->layout = false;
+			$this->set('ajax', 1);
+
+		}	else	{
+
+			$this->set('ajax', 0);
+		}
+	}
 }

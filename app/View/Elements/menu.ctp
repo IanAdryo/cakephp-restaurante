@@ -104,20 +104,21 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mesas <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><?php echo $this->Html->link('Lista Mesas', array('controller' => 'mesas', 'action' => 'index')) ?></li>
-            <li><?php echo $this->Html->link('Nueva Mesa', array('controller' => 'mesas', 'action' => 'add')) ?></li>
+            <li><?php echo $this->Html->link('Lista Mesas', array('controller' => 'mesas', 'action' => 'index')); ?></li>
+            <li><?php echo $this->Html->link('Nueva Mesa', array('controller' => 'mesas', 'action' => 'add')); ?></li>
           </ul>
         </li>
 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Platillos <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><?php echo $this->Html->link('Lista Platillos', array('controller' => 'platillos', 'action' => 'index')) ?></li>
-            <li><?php echo $this->Html->link('Nueva Platillos', array('controller' => 'platillos', 'action' => 'add')) ?></li>
+            <li><?php echo $this->Html->link('Lista Platillos', array('controller' => 'platillos', 'action' => 'index')); ?></li>
+            <li><?php echo $this->Html->link('Nueva Platillos', array('controller' => 'platillos', 'action' => 'add')); ?></li>
+            <li><?php echo $this->Html->link('Buscar Platillos', array('controller' => 'platillos', 'action' => 'search')); ?></li>
             <li class="divider"></li>
             <li class="dropdown-header">Categorias</li>
-            <li><?php echo $this->Html->link('Lista Categorias', array('controller' => 'categoriaPlatillos', 'action' => 'index')) ?></li>
-            <li><?php echo $this->Html->link('Nueva Categorias', array('controller' => 'categoriaPlatillos', 'action' => 'add')) ?></li>
+            <li><?php echo $this->Html->link('Lista Categorias', array('controller' => 'categoriaPlatillos', 'action' => 'index')); ?></li>
+            <li><?php echo $this->Html->link('Nueva Categorias', array('controller' => 'categoriaPlatillos', 'action' => 'add')); ?></li>
           </ul>
         </li>
 
