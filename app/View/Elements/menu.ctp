@@ -78,12 +78,21 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Restaurante</a>
+      
+      <?php echo $this->Html->link('Restaurante', array('controller' => 'pages', 'action' => 'home'), array('class' => 'navbar-brand')) ?>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 
-        <li class="active"><?php echo $this->Html->link('Home', array('controller' => 'pages', 'action' => 'home')) ?></li>
+
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><?php echo $this->Html->link('Lista Usuarios', array('controller' => 'users', 'action' => 'index')) ?></li>
+            <li><?php echo $this->Html->link('Nuevo Usuario', array('controller' => 'users', 'action' => 'add')) ?></li>
+          </ul>
+        </li>
 
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Meseros <span class="caret"></span></a>
@@ -130,7 +139,7 @@
         </div>
         <?php echo $this->Form->button('Buscar', array('div' => false, 'class' => 'btn btn-sm btn-primary')); ?>
         <?php echo $this->Form->end(); ?>
-        
+
         <?php echo $this->Html->link('Pedidos', array('controller' => 'pedidos', 'action' => 'view'), array('class' => 'btn  btn-success navbar-btn')) ?>
       </ul>
 
