@@ -19,9 +19,28 @@ class UsersController extends AppController {
 	public function beforeFilter() {
 
 		parent::beforeFilter();
-		$this->Auth->allow('add');
+		//$this->Auth->allow('add');
 	}
 
+	public function isAuthorized($user){
+		
+		if ($user['role'] == 'user') {
+
+			if (in_array($this->action, array('add', 'index'))) {
+				
+				return true;
+
+			}	else	{
+
+				if ($this->Auth->user('id')){
+
+					$this->Session->setFlash('No puede aceder', $element = 'default', $params = array('class' => 'alert alert-danger'));
+					$this->redirect($this->Auth->redirect());
+				}
+			}			
+		}
+		return parent::isAuthorized($user);
+	}
 	public function login() {
 
 		if ($this->request->is('post')) {

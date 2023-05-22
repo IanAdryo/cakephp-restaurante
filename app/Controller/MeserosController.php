@@ -16,6 +16,26 @@ class MeserosController extends AppController {
 	public $components = array('RequestHandler', 'Session');
 	public $helpers = array('Html', 'Form', 'Time', 'Js');
 
+	public function isAuthorized($user)
+	{
+
+		if ($user['role'] == 'user') {
+
+			if (in_array($this->action, array('view', 'index', 'add'))) {
+
+				return true;
+			} else {
+
+				if ($this->Auth->user('id')) {
+
+					$this->Session->setFlash('No puede aceder', $element = 'default', $params = array('class' => 'alert alert-danger'));
+					$this->redirect($this->Auth->redirect());
+				}
+			}
+		}
+		return parent::isAuthorized($user);
+	}
+
 
 	public $paginate = array(
 

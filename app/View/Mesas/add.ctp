@@ -1,20 +1,23 @@
 <div class="mesas form">
-<?php echo $this->Form->create('Mesa'); ?>
+	<?php echo $this->Form->create('Mesa'); ?>
 	<fieldset>
 		<legend><?php echo __('Add Mesa'); ?></legend>
-	<?php
-		echo $this->Form->input('serie');
-		echo $this->Form->input('puestos');
-		echo $this->Form->input('posicion');
-		echo $this->Form->input('mesero_id');
-	?>
+		<?php
+		echo $this->Form->input('serie', array('class' => 'form-control'));
+		echo $this->Form->input('puestos', array('class' => 'form-control'));
+		echo $this->Form->input('posicion', array('class' => 'form-control'));
+		echo $this->Form->input('mesero_id', array('class' => 'form-control'));
+		?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+	<br>
+	<?php echo $this->Form->end(array('label' => 'Submit', 'class' => 'btn btn-md btn-primary mb-3')); ?>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
+<br>
+<div class="btn-group">
+	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+		<?php echo __('Actions'); ?> <span class="caret"></span>
+	</button>
+	<ul class="dropdown-menu" role="menu">
 		<li><?php echo $this->Html->link(__('List Mesas'), array('action' => 'index')); ?></li>
 		<li><?php echo $this->Html->link(__('List Meseros'), array('controller' => 'meseros', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Mesero'), array('controller' => 'meseros', 'action' => 'add')); ?> </li>
