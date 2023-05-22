@@ -142,6 +142,11 @@
 
         <?php echo $this->Html->link('Pedidos', array('controller' => 'pedidos', 'action' => 'view'), array('class' => 'btn  btn-success navbar-btn')) ?>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <?php echo $this->Html->link('Salir', array('controller' => 'users', 'action' => 'logout')); ?>
+        </li>
+      </ul>
 
     </div><!--/.nav-collapse -->
   </div>

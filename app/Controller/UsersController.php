@@ -16,6 +16,30 @@ class UsersController extends AppController {
  */
 	public $components = array('Paginator', 'Session');
 
+	public function beforeFilter() {
+
+		parent::beforeFilter();
+		$this->Auth->allow('add');
+	}
+
+	public function login() {
+
+		if ($this->request->is('post')) {
+
+			if ($this->Auth->login()) {
+
+				return $this->redirect($this->Auth->redirectUrl());
+			}
+
+			$this->Session->setFlash('Usuario y/o contraseña son incorrectos!', $element = 'default', $params = array('class' => 'alert alert-danger'));
+		}
+	}
+
+	public function logout() {
+
+		return $this->redirect($this->Auth->logout());
+	}
+
 /**
  * index method
  *
